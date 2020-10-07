@@ -1,0 +1,68 @@
+.booking_body {
+  width: 1080px;
+  margin: 0 auto;
+  font-family: "Arial";
+  vertical-align: middle;
+  position: relative;
+}
+
+div.elem-group {
+  margin: 20px 0;
+}
+
+div.elem-group.inlined {
+  display: inline-block;
+  margin-left: 3%;
+  float: left;
+  width: 25%;
+}
+
+label {
+  font-family: "Nanum Gothic";
+  padding-bottom: 10px;
+  font-size: 1.25em;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: "Nanum Gothic";
+  width: 100%;
+  padding: 10px;
+}
+
+div.elem-group.inlined input {
+  width: 95%;
+  display: inline-block;
+}
+
+textarea {
+  height: 250px;
+}
+
+hr {
+  border: 1px dotted #ccc;
+}
+
+button {
+  height: 50px;
+  background: #2c50ff;
+  border: 2px solid #2c50ff;
+  color: white;
+  font-size: 1.25em;
+  font-family: "Arial";
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 48px;
+  margin-left: 50px;
+  width: 200px;
+}
+
+button:hover {
+  background: #2d468b;
+}
