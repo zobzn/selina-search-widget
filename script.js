@@ -89,16 +89,14 @@
     });
 
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
       var ci = checkInInput.value;
       var co = checkOutInput.value;
       var location = locationSelect.value;
 
       if (ci && co && location) {
-        window.location.assign(
-          "https://selina.com/search" + location + "/?ci=" + ci + "&co=" + co
-        );
+        form.action = "https://selina.com/search" + location;
+      } else {
+        e.preventDefault();
       }
     });
   });
