@@ -29,7 +29,7 @@
 
     checkInInput.min = dateTomorrowYYYYMMDD;
     checkInInput.addEventListener("change", function () {
-      checkOutInput.valueAsNumber = this.valueAsNumber + millisecondsInDay * 31;
+      checkOutInput.valueAsNumber = this.valueAsNumber + millisecondsInDay * 30;
       checkOutInput.min = checkOutInput.value;
       checkOutInput.max = checkOutInput.value;
     });
