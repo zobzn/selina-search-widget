@@ -51,31 +51,3 @@
     });
   });
 })();
-
-(() => {
-  function qs(selector, root) {
-    return (root || document).querySelector(selector);
-  }
-
-  function qsa(selector, root) {
-    return Array.prototype.slice.call(
-      (root || document).querySelectorAll(selector)
-    );
-  }
-
-  const options = qsa("tbody tr.MuiTableRow-root")
-    .map((tr) => {
-      const country = qs("td:first-child + td", tr).textContent;
-      const location = qs("td:first-child + td + td", tr).textContent;
-      const url = qs("td:first-child + td + td + td", tr).textContent;
-      return { country, location, url };
-    })
-    .filter(({ country, location, url }) => {
-      return url.trim() !== "";
-    })
-    .map(({ country, location, url }) => {
-      return `<option value="${url}">${country}, ${location}</option>`;
-    });
-
-  return options.join("\n");
-})();
