@@ -9,36 +9,6 @@
     );
   }
 
-  function isLeapYear(year) {
-    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-  }
-
-  function getDaysInMonth(year, month) {
-    return [
-      31,
-      isLeapYear(year) ? 29 : 28,
-      31,
-      30,
-      31,
-      30,
-      31,
-      31,
-      30,
-      31,
-      30,
-      31,
-    ][month];
-  }
-
-  function dateParseYYYYMMDD(dateString) {
-    var datePattern = /^(\d{4})-(\d{2})-(\d{2})$/;
-    var parsed = datePattern.exec(dateString);
-    var year = parsed[1];
-    var month = parsed[2];
-    var date = parsed[3];
-    return new Date(Date.UTC(+year, +month - 1, +date));
-  }
-
   function dateFormatYYYYMMDD(dateObject) {
     var year = dateObject.getFullYear();
     var month = dateObject.getMonth() + 1;
@@ -48,40 +18,20 @@
     return year + "-" + month + "-" + date;
   }
 
-  function dateAddDays(oldDate, days) {
-    var newDate = new Date(oldDate.getTime());
-    newDate.setDate(newDate.getDate() + days);
-    return newDate;
-  }
-
-  function dateAddMonths(oldDate, months) {
-    var newDate = new Date(oldDate.getTime());
-    var n = oldDate.getDate();
-    newDate.setDate(1);
-    newDate.setMonth(newDate.getMonth() + months);
-    newDate.setDate(
-      Math.min(n, getDaysInMonth(newDate.getFullYear(), newDate.getMonth()))
-    );
-    return newDate;
-  }
-
-  var dateToday = new Date(new Date().getTime());
-  var dateTomorrow = dateAddDays(dateToday, 1);
+  var millisecondsInDay = 24 * 3600 * 1000;
+  var dateTomorrow = new Date(new Date().getTime() + millisecondsInDay);
+  var dateTomorrowYYYYMMDD = dateFormatYYYYMMDD(dateTomorrow);
 
   qsa(".checkin-date").forEach(function (checkInInput) {
     var form = checkInInput.closest("form");
     var checkOutInput = qs(".checkout-date", form);
     var locationSelect = qs(".location-selection", form);
 
-    checkInInput.min = dateFormatYYYYMMDD(dateTomorrow);
+    checkInInput.min = dateTomorrowYYYYMMDD;
     checkInInput.addEventListener("change", function () {
-      var dateCheckIn = dateParseYYYYMMDD(this.value);
-      var dateCheckOut = dateAddMonths(dateCheckIn, 1);
-      // var dateCheckOut = dateAddDays(dateCheckIn, 30);
-
-      checkOutInput.min = dateFormatYYYYMMDD(dateCheckOut);
-      checkOutInput.max = dateFormatYYYYMMDD(dateCheckOut);
-      checkOutInput.value = dateFormatYYYYMMDD(dateCheckOut);
+      checkOutInput.valueAsNumber = this.valueAsNumber + millisecondsInDay * 31;
+      checkOutInput.min = checkOutInput.value;
+      checkOutInput.max = checkOutInput.value;
     });
 
     locationSelect.addEventListener("change", function () {
