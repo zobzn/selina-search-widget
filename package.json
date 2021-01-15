@@ -6,17 +6,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "scripts": {
-    "format": "prettier --write .",
-    "build": "parcel build src/index.html",
-    "start": "parcel src/index.html"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zobzn/selina-search-widget.git"
   },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "parcel build src/index.html",
+    "start": "parcel src/index.html",
+    "format": "prettier --write .",
+    "serve": "serve dist"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "serve": "^11.3.2"
   }
 }
