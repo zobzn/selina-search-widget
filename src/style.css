@@ -1,9 +1,10 @@
 .booking_body {
   width: 1080px;
   margin: 0 auto;
-  font-family: "Arial";
+  font-family: Arial, sans-serif;
   vertical-align: middle;
   position: relative;
+  background: #ffffff;
 }
 
 div.elem-group {
@@ -14,11 +15,11 @@ div.elem-group.inlined {
   display: inline-block;
   margin-left: 3%;
   float: left;
-  width: 25%;
+  width: 20%;
 }
 
 label {
-  font-family: "Nanum Gothic";
+  font-family: Arial, sans-serif;
   padding-bottom: 10px;
   font-size: 1.25em;
   display: block;
@@ -31,7 +32,7 @@ textarea {
   border: 2px solid #777;
   box-sizing: border-box;
   font-size: 1.25em;
-  font-family: "Nanum Gothic";
+  font-family: Arial, sans-serif;
   width: 100%;
   padding: 10px;
 }
@@ -55,8 +56,8 @@ button[type="submit"] {
   border: 2px solid #2c50ff;
   color: white;
   font-size: 1.25em;
-  font-family: "Arial";
-  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 48px;
   margin-left: 50px;
