@@ -67,3 +67,17 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background: #2d468b;
 }
+
+.booking-form-wrapper.is_stuck {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  width: 100% !important;
+  padding: 0 0 10px 0;
+  background: #eee;
+  display: flex;
+  left: 0;
+}
+
+.booking-form-wrapper.is_stuck form {
+  max-width: 1080px;
+}

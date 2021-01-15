@@ -108,4 +108,11 @@
       }
     });
   });
+
+  if ($ && $.fn && $.fn.stick_in_parent) {
+    $(".booking-form-wrapper")
+      .stick_in_parent({ parent: "#lp-pom-root" })
+      .closest(".lp-code")
+      .css({ zIndex: 1000 });
+  }
 })();
