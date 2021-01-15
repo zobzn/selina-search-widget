@@ -1,13 +1,16 @@
+<!DOCTYPE html>
+
 <div class="lp-element lp-code" id="lp-code-1040">
   <!-- lp:insertions start div#lp-code-1040 -->
-  <form target="_top" action="https://selina.com/search/" method="get">
+  <form target="_blank" action="https://selina.com/search/" method="get">
+    <input type="hidden" name="ci" />
+    <input type="hidden" name="co" />
     <div class="elem-group_mobile">
       <label for="checkin-date-mobile">Check-in</label>
       <input
         type="date"
         class="checkin-date"
         id="checkin-date-mobile"
-        name="ci"
         required
       />
     </div>
@@ -17,7 +20,6 @@
         type="date"
         class="checkout-date inputMobile"
         id="checkout-date-mobile"
-        name="co"
         required
         readonly
       />
@@ -26,7 +28,7 @@
       <label for="location-selection-mobile">Location</label>
       <select
         class="location-selection selectMobile"
-        id="location-selection"
+        id="location-selection-mobile"
         required=""
       >
         <option value=""></option>
@@ -179,15 +181,11 @@
   <!-- lp:insertions start div#lp-code-1045 -->
 
   <form target="_blank" action="https://selina.com/search/" method="get">
+    <input type="hidden" name="ci" />
+    <input type="hidden" name="co" />
     <div class="elem-group inlined">
       <label for="checkin-date">Check-in</label>
-      <input
-        type="date"
-        class="checkin-date"
-        id="checkin-date"
-        name="ci"
-        required
-      />
+      <input type="date" class="checkin-date" id="checkin-date" required />
     </div>
     <div class="elem-group inlined">
       <label for="checkout-date">Check-out</label>
@@ -195,7 +193,6 @@
         type="date"
         class="checkout-date"
         id="checkout-date"
-        name="co"
         required
         readonly
       />
@@ -351,5 +348,11 @@
   <!-- lp:insertions end div#lp-code-1045 -->
 </div>
 
-<script src="script.js"></script>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"
+/>
 <link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<script src="./script.js"></script>
